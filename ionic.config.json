@@ -1,0 +1,7 @@
+{
+  "name": "brincadeiraSons",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
