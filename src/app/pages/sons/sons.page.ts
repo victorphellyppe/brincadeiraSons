@@ -1,6 +1,6 @@
 import {Howl, Howler} from 'howler';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Track } from '../interfaces/track';
+import { Track } from '../../interfaces/track';
 import { IonRange } from '@ionic/angular';
 
 @Component({
