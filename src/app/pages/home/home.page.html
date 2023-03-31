@@ -10,45 +10,4 @@
 </ion-header>
 
 <ion-content>
-  <!--
-    Datetime simples
-  <ion-card>
-    <ion-datetime [presentation]="selectedMode"></ion-datetime>
-  </ion-card> -->
-
-
-<!-- Datetime modelo 2
-       <ion-label>Date
-      <p>Click me!</p>
-    </ion-label>
-    <ion-text slot="end">{{ formattedString }}</ion-text>
-  </ion-item>
-  <ion-datetime *ngIf="showPicker" #datetime
-    [value]="dateValue"
-    size="cover"
-    (ionChange)="dateChanged(datetime.value)"
-    (ionCancel)="showPicker = false;"
-    showDefaultButtons="true"></ion-datetime> -->
-
-
-    <ion-item id="open-modal">
-      <ion-icon icon="calendar-outline" slot="start" color="primary"></ion-icon>
-      <ion-label>Data e hora</ion-label>
-      <ion-text slot="end">{{ formattedString }}</ion-text>
-    </ion-item>
-
-    <ion-modal trigger="open-modal">
-      <ng-template>
-        <ion-content scrollY="false">
-          <ion-datetime #datetimemodal [value]="dateValue" size="cover"
-            (ionChange)="modalDateChanged(datetimemodal.value)">
-            <ion-buttons slot="buttons">
-              <ion-button (click)="close()">Cancelar</ion-button>
-              <ion-button (click)="select()" color="primary">Ok</ion-button>
-            </ion-buttons>
-          </ion-datetime>
-        </ion-content>
-      </ng-template>
-    </ion-modal>
-
 </ion-content>
