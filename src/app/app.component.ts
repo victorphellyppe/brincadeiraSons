@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
-import { Platform } from '@ionic/angular';
+import { MenuController, NavController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +10,15 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  navigate : any;
-  constructor(private platform    : Platform,
-              private splashScreen: SplashScreen,
-              private statusBar   : StatusBar
-              )
-  {
+  navigate: any;
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    private router: Router,
+    private menuCtrl: MenuController,
+    private navCtrl: NavController
+  ) {
     this.sideMenu();
     this.initializeApp();
   }
@@ -26,25 +30,30 @@ export class AppComponent {
     });
   }
 
-  sideMenu()
-  {
-    this.navigate =
-    [
+  sideMenu() {
+    this.navigate = [
       {
-        title : "Home",
-        url   : "/home",
-        icon  : "home"
+        title: 'Home',
+        url: '/home',
+        icon: 'home',
       },
       {
-        title : "Sons",
-        url   : "/sons",
-        icon  : "chatboxes"
+        title: 'Sons',
+        url: '/sons',
+        icon: 'chatboxes',
       },
       {
-        title : "Contacts",
-        url   : "/contacts",
-        icon  : "contacts"
+        title: 'Contacts',
+        url: '/contacts',
+        icon: 'contacts',
       },
-    ]
+    ];
+  }
+
+  open(path) {
+    const encoded = encodeURIComponent(path);
+    this.navCtrl.setDirection('root');
+    this.router.navigateByUrl(`/accordion/${encoded}`);
+    this.menuCtrl.toggle();
   }
 }
