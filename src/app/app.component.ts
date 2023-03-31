@@ -36,14 +36,14 @@ export class AppComponent {
         icon  : "home"
       },
       {
-        title : "Sons",
+        title : "Brincadeira dos sons",
         url   : "/sons",
-        icon  : "chatboxes"
+        icon  : "musical-note-outline"
       },
       {
-        title : "Contacts",
-        url   : "/contacts",
-        icon  : "contacts"
+        title : "Eventos",
+        url   : "/eventos",
+        icon  : "balloon-outline"
       },
     ]
   }
