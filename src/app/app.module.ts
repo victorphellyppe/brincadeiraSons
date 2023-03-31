@@ -9,10 +9,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { IonicStorageModule } from '@ionic/storage-angular';
+// import { TimerWatchComponent } from './components/timer-watch/timer-watch.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(), ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SplashScreen, StatusBar],
   bootstrap: [AppComponent],
 })

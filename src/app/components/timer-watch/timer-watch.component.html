@@ -1,0 +1,23 @@
+<div #box class="resizable-draggable" [style.width.px]="width" [style.height.px]="height"
+  [style.transform]="'translate3d('+ left + 'px,' + top + 'px,' + '0px)'" [class.active]="status === 1 || status === 2"
+  (mousedown)="setStatus($event, 2)" (touchstart)="setStatusTouch($event, 2)" (touchend)="setStatusTouch($event, 0)"
+  (window:mouseup)="setStatus($event, 0)">
+  <h1>
+    {{timer.time}}
+  </h1>
+  <ion-grid>
+    <ion-row text-center class="mt-5">
+      <ion-col class="col-12" *ngIf="!timer.running && timer.time == timer.blankTime">
+        <ion-button (click)="timer.start()">Iniciar</ion-button>
+      </ion-col>
+      <ion-col class="col-12" *ngIf="timer.running">
+        <ion-button (click)="timer.stop()">Parar
+        </ion-button>
+      </ion-col>
+      <ion-col class="col-12" *ngIf="!timer.running && timer.time != timer.blankTime">
+        <ion-button (click)="timer.reset()">Zerar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

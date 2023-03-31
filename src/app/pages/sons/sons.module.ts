@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SonsPageRoutingModule } from './sons-routing.module';
 
 import { SonsPage } from './sons.page';
+import { TimerWatchComponent } from 'src/app/components/timer-watch/timer-watch.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SonsPageRoutingModule
+    SonsPageRoutingModule,
   ],
-  declarations: [SonsPage]
+  declarations: [SonsPage, TimerWatchComponent]
 })
 export class SonsPageModule {}

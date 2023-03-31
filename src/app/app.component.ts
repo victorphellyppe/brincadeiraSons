@@ -41,8 +41,8 @@ export class AppComponent {
         icon  : "musical-note-outline"
       },
       {
-        title : "Eventos",
-        url   : "/eventos",
+        title : "Agendar evento",
+        url   : "/events",
         icon  : "balloon-outline"
       },
     ]

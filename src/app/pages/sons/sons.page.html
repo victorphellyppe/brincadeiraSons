@@ -8,6 +8,7 @@
 </ion-header>
 
 <ion-content>
+  <app-timer-watch></app-timer-watch>
   <ion-list>
     <ion-item button *ngFor="let track of playlist" (click)="start(track)">
       <ion-label [color]="track == activeTrack ? 'danger' : 'dark'">

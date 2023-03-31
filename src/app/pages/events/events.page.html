@@ -1,36 +1,75 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-    <ion-title>
-      Eventos
-    </ion-title>
+    </ion-buttons>
+    <ion-title> Agendar evento </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item lines="none">
+    <ion-icon name="person-outline" slot="start"></ion-icon>
+    <ion-label position="floating">Nome Completo </ion-label>
+    <ion-input></ion-input>
+  </ion-item>
 
 
+  <ion-item lines="none">
+    <ion-icon name="bookmark-outline" slot="start"></ion-icon>
+    <ion-label position="floating" >CPF </ion-label>
+    <ion-input></ion-input>
+  </ion-item>
 
-    <ion-item id="open-modal">
-      <ion-icon icon="calendar-outline" slot="start" color="primary"></ion-icon>
-      <ion-label>Data e hora</ion-label>
-      <ion-text slot="end">{{ formattedString }}</ion-text>
-    </ion-item>
 
-    <ion-modal trigger="open-modal">
-      <ng-template>
-        <ion-content scrollY="false">
-          <ion-datetime #datetimemodal [value]="dateValue" size="cover"
-            (ionChange)="modalDateChanged(datetimemodal.value)">
-            <ion-buttons slot="buttons">
-              <ion-button (click)="close()">Cancelar</ion-button>
-              <ion-button (click)="select()" color="primary">Ok</ion-button>
-            </ion-buttons>
-          </ion-datetime>
-        </ion-content>
-      </ng-template>
-    </ion-modal>
+  <ion-item lines="none">
+    <ion-icon name="accessibility-outline" slot="start"></ion-icon>
 
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-label position="floating">Nome da criança </ion-label>
+            <ion-input></ion-input>
+          </div>
+        </ion-col>
+        <ion-col offset-4="">
+          <div>
+            <ion-label position="floating">Idade</ion-label>
+            <ion-input></ion-input>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-icon name="call-outline" slot="start"></ion-icon>
+    <ion-label position="floating" >Telefones para contato </ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item id="open-modal" lines="none">
+    <ion-icon icon="calendar-outline" slot="start"></ion-icon>
+    <ion-label>Data e hora</ion-label>
+    <ion-text slot="end">{{ formattedString }}</ion-text>
+  </ion-item>
+
+  <ion-modal trigger="open-modal">
+    <ng-template>
+      <ion-content scrollY="false">
+        <ion-datetime
+          #datetimemodal
+          [value]="dateValue"
+          size="cover"
+          (ionChange)="modalDateChanged(datetimemodal.value)"
+        >
+          <ion-buttons slot="buttons">
+            <ion-button (click)="close()">Cancelar</ion-button>
+            <ion-button (click)="select()" color="primary">Ok</ion-button>
+          </ion-buttons>
+        </ion-datetime>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
