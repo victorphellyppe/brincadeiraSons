@@ -3,11 +3,11 @@ import { IonDatetime } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
 
 @Component({
-  selector: 'app-eventos',
-  templateUrl: './eventos.page.html',
-  styleUrls: ['./eventos.page.scss'],
+  selector: 'app-events',
+  templateUrl: './events.page.html',
+  styleUrls: ['./events.page.scss'],
 })
-export class EventosPage implements OnInit {
+export class EventsPage implements OnInit {
 
   @ViewChild(IonDatetime) datetime: IonDatetime;
   dateValue = format(new Date(), 'yyyy-MM-dd') + 'T09:00:00.000Z';

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { EventosPage } from './eventos.page';
+import { EventsPage } from './events.page';
 
-describe('EventosPage', () => {
-  let component: EventosPage;
-  let fixture: ComponentFixture<EventosPage>;
+describe('EventsPage', () => {
+  let component: EventsPage;
+  let fixture: ComponentFixture<EventsPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventosPage ],
+      declarations: [ EventsPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EventosPage);
+    fixture = TestBed.createComponent(EventsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
