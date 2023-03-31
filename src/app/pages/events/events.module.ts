@@ -13,7 +13,7 @@ import { EventsPage } from './events.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    EventsPageRoutingModule
+    EventsPageRoutingModule,
   ],
   declarations: [EventsPage]
 })
