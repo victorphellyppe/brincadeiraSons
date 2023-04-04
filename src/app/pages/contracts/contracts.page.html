@@ -1,0 +1,211 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Gerar contrato</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="contractForm" (ngSubmit)="createPdf()">
+
+    <!-- <ion-item>
+      <ion-label>Dados da empresa</ion-label>
+
+       empresa -->
+      <!-- <ion-label position="stacked">Nome Empresarial </ion-label>
+      <ion-input formControlName="empresa" placeholder="Shirleise Miguel Barros de Oliveira"value="Shirleise Miguel Barros de Oliveira" ></ion-input>
+     </ion-item> -->
+      <!--<ion-label position="stacked">CPF </ion-label>
+      <ion-input formControlName="meu_cpf" placeholder="056.324.644-82" value="056.324.644-82" ></ion-input>
+
+      <ion-label position="stacked">Nome fantasia </ion-label>
+      <ion-input formControlName="fantasia" placeholder="Palhaça Pipocka Festas & Eventos"value="Palhaça Pipocka Festas & Eventos" ></ion-input>
+
+      <ion-label position="stacked"> CNPJ  </ion-label>
+      <ion-input formControlName="cnpj" placeholder="27.887.533/0001-93"value="27.887.533/0001-93" ></ion-input>
+
+      <ion-label position="stacked"> Endereço  </ion-label>
+      <ion-input formControlName="meu_endereco" placeholder="Rua Xavier de brito, 574 – Prado/ Maceió – AL"value="Rua Xavier de brito, 574 – Prado/ Maceió – AL" ></ion-input>
+
+      <ion-label position="stacked"> Telefone Comercial  </ion-label>
+      <ion-input formControlName="tel_comercial" placeholder="(82) 98746-9622"value="(82) 98746-9622" ></ion-input>
+
+      <ion-label position="stacked"> E-mail  </ion-label>
+      <ion-input formControlName="mail" placeholder="palhacapipocka.maceio@gmail.com"value="palhacapipocka.maceio@gmail.com" ></ion-input>
+
+      <ion-label position="stacked"> Instagram  </ion-label>
+      <ion-input formControlName="instagram" placeholder="@palhaca.pipocka_oficial"value="@palhaca.pipocka_oficial" ></ion-input>
+
+    </ion-item> -->
+
+    <!--
+    Contrato de prestação de serviço
+Nome Empresarial : Shirleise Miguel Barros
+CPF : 056.324.644-82
+Nome fantasia : Palhaça Pipocka Festas & Eventos
+CNPJ : 27.887.533/0001-93
+Endereço : Rua Xavier de brito, 590 A – Prado/ Maceió – AL
+Telefone Comercial : (82) 98746-9622
+E-mail : palhacapipocka.maceio@gmail.com
+Instagram : @palhaca.pipocka_oficial -->
+
+    <img [src]="photoPreview" *ngIf="photoPreview" />
+
+    <ion-label>Dados do cliente</ion-label>
+
+
+    <!-- Nome completo -->
+    <ion-item>
+      <ion-label position="stacked">Nome completo</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-item>
+    <!-- Error messages -->
+    <!-- <span
+      style="color: red"
+      class="error ion-padding"
+      *ngIf="contractForm.get('name')?.errors?. && contractForm.get('name')?.touched"
+    >
+      Nome é obrigatório.
+    </span> -->
+
+    <!-- CPF -->
+    <ion-item>
+      <ion-label position="stacked">CPF</ion-label>
+      <ion-input formControlName="CPF" [brmasker]="{mask: '999.999.999-99', len:14, userCaracters: false}"></ion-input>
+    </ion-item>
+    <!-- Error messages -->
+    <!-- <span
+    style="color: red"
+    class="error ion-padding"
+    *ngIf="contractForm.get('CPF')?.errors?.required && contractForm.get('CPF')?.touched"
+  >
+    CPF é obrigatório.
+  </span> -->
+
+    <!-- Nome da criança -->
+    <ion-item>
+      <ion-label position="stacked">Nome da criança</ion-label>
+      <ion-input formControlName="nameKids"></ion-input>
+    </ion-item>
+    <!-- <span
+      style="color: red"
+      class="error ion-padding"
+      *ngIf="contractForm.get('nameKids')?.errors?.required && contractForm.get('nameKids')?.touched"
+    >
+      Nome da criança é obrigatório.
+    </span> -->
+
+    <!-- Idade -->
+    <ion-item>
+      <ion-label position="stacked">Idade</ion-label>
+      <ion-input formControlName="age"></ion-input>
+    </ion-item>
+
+    <!-- Telefones para contato -->
+    <ion-item>
+      <ion-label position="stacked">Telefone para contato</ion-label>
+      <ion-input formControlName="numbers"  [brmasker]="{mask:'(82)9 8826-0479'}"></ion-input>
+    </ion-item>
+    <!-- <span
+    style="color: red"
+    class="error ion-padding"
+    *ngIf="contractForm.get('numbers')?.errors?.required && contractForm.get('numbers')?.touched"
+  >
+    Telefone pra contato é obrigatório.
+  </span> -->
+
+    <!-- Email -->
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+
+    <!-- Data e hora-->
+    <ion-item>
+      <ion-label position="stacked">Data e hora</ion-label>
+      <ion-input formControlName="dateTime" [brmasker]="{mask:'99/99/9999 99:99'}"></ion-input>
+    </ion-item>
+    <!-- Error messages -->
+    <!-- <span
+      style="color: red"
+      class="error ion-padding"
+      *ngIf="contractForm.get('dateTime')?.errors?.required && contractForm.get('dateTime')?.touched"
+    >
+      Data e hora são obrigatórios.
+    </span> -->
+
+
+    <!-- tema -->
+    <ion-item>
+      <ion-label position="stacked">Tema</ion-label>
+      <ion-input formControlName="theme"></ion-input>
+    </ion-item>
+
+    <!-- Endereço festa -->
+    <ion-item>
+      <ion-label position="stacked">Endereço</ion-label>
+      <ion-input formControlName="address_fest"></ion-input>
+    </ion-item>
+    <!-- <span
+    style="color: red"
+    class="error ion-padding"
+    *ngIf="contractForm.get('address_fest')?.errors?.required && contractForm.get('address_fest')?.touched"
+  >
+    Endereço é obrigatório.
+  </span> -->
+
+
+    <!-- Local -->
+    <ion-item>
+      <ion-label position="stacked">Local</ion-label>
+      <ion-input formControlName="localization"></ion-input>
+    </ion-item>
+    <!-- <span
+    style="color: red"
+    class="error ion-padding"
+    *ngIf="contractForm.get('localization')?.errors?.required && contractForm.get('localization')?.touched"
+  >
+    Local é obrigatório.
+  </span> -->
+
+    <!--  Bairro-->
+    <ion-item>
+      <ion-label position="stacked">Bairro</ion-label>
+      <ion-input formControlName="district"></ion-input>
+    </ion-item>
+    <!--  Ponto de referência-->
+    <ion-item>
+      <ion-label position="stacked">Ponto de referência</ion-label>
+      <ion-input formControlName="reference_point"></ion-input>
+    </ion-item>
+    <!-- Observação -->
+    <ion-item>
+      <ion-label position="stacked">Observação</ion-label>
+      <ion-textarea formControlName="obs"></ion-textarea>
+    </ion-item>
+
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Serviço contratado</ion-label>
+        <ion-select placeholder="Qual o serviço contratado ?" formControlName="servico_contratado">
+          <ion-select-option value="Pintura facial">Pintura facial</ion-select-option>
+          <ion-select-option value="Animação">Animação </ion-select-option>
+          <ion-select-option value="Recreação">Recreação </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Valor</ion-label>
+        <ion-textarea formControlName="valor" type="number" [brmasker]="{mask:'000.00'}"></ion-textarea>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" type="submit" (click)="createPdf();">Gerar</ion-button>
+  </form>
+
+  <!-- <ion-button expand="full" (click)="takePicture()">Add Picture</ion-button> -->
+  <ion-button expand="full" (click)="downloadPdf()" color="secondary" [disabled]="!pdfObj">Baixar</ion-button>
+
+</ion-content>

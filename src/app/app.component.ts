@@ -45,6 +45,11 @@ export class AppComponent {
         url   : "/events",
         icon  : "balloon-outline"
       },
+      {
+        title: "Gerar contrato",
+        url: "/contracts",
+        icon: "document-outline"
+      }
     ]
   }
 }

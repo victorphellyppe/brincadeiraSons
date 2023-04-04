@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'events',
     loadChildren: () => import('./pages/events/events.module').then(m => m.EventsPageModule)
   },
+  {
+    path: 'contracts',
+    loadChildren: () => import('./pages/contracts/contracts.module').then(m => m.ContractsPageModule)
+  },
 
 
 ];
