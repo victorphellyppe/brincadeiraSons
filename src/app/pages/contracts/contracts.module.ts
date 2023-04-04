@@ -1,5 +1,4 @@
 
-import { SharedComponentsModule } from './../../components/shared-components.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,7 +16,6 @@ import { BrMaskerModule } from 'br-mask';
     CommonModule,
     IonicModule,
     ContractsPageRoutingModule,
-    SharedComponentsModule,
     FormsModule,
     ReactiveFormsModule,
     BrMaskerModule,
