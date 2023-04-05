@@ -1,0 +1,13 @@
+ion-content {
+  width: 100%;
+
+  form {
+    width: 100%;
+    height: 20px;
+
+    .button {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

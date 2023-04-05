@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
+const STORAGE_KEY = 'mylist';
 
 @Injectable({
   providedIn: 'root'
@@ -11,33 +12,52 @@ export class StorageService {
     this.init();
   }
 
-  async init() {
-    const storage = await this.storage.create();
-    this._storage = storage;
+  // async init() {
+  //   const storage = await this.storage.create();
+  //   this._storage = storage;
+  // }
+
+  init(){
+    this.storage.create();
   }
 
-  public set(key: string, value: any) {
-    this._storage.set(key, value);
+  getData() {
+    return this.storage.get(STORAGE_KEY) || [];
   }
 
-  public get(key: string): Promise<any> {
-    return this._storage.get(key);
+  async addData(event){
+    const storedData = await this.storage.get(STORAGE_KEY) || [];
+    storedData.push(event);
+    return this.storage.set(STORAGE_KEY, storedData);
+  }
+  async removeItem(index){
+    const storedData = await this.storage.get(STORAGE_KEY) || [];
+    storedData.splice(index, 1);
+    return this.storage.set(STORAGE_KEY, storedData);
   }
 
-  public remove(key): Promise<any> {
-    return this._storage.remove(key);
-  }
+  // public set(key: string, value: any) {
+  //   this._storage.set(key, value);
+  // }
 
-  public clear(): Promise<any> {
-    return this._storage.clear();
-  }
+  // public get(key: string): Promise<any> {
+  //   return this._storage.get(key);
+  // }
 
-  public for(): Promise<any> {
-    return this._storage.keys()
-  }
+  // public remove(key): Promise<any> {
+  //   return this._storage.remove(key);
+  // }
 
-  public tamanho(): Promise<any> {
-    return this._storage.length();
-  }
+  // public clear(): Promise<any> {
+  //   return this._storage.clear();
+  // }
+
+  // public for(): Promise<any> {
+  //   return this._storage.keys()
+  // }
+
+  // public tamanho(): Promise<any> {
+  //   return this._storage.length();
+  // }
 
 }

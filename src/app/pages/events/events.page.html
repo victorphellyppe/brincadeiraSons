@@ -8,92 +8,96 @@
 </ion-header>
 
 <ion-content>
-  <ion-item lines="none">
-    <ion-icon name="person-outline" slot="start"></ion-icon>
-    <ion-label position="floating">Nome Completo </ion-label>
-    <ion-input placeholder="Victor Oliveira"></ion-input>
-  </ion-item>
+  <form [formGroup]="eventForm" (ngSubmit)="submitForm()">
+    <ion-item lines="none">
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Nome Completo </ion-label>
+      <ion-input formControlName="fullName" name="fullName" placeholder="Victor Oliveira"></ion-input>
+    </ion-item>
 
 
-  <ion-item lines="none">
-    <ion-icon name="bookmark-outline" slot="start"></ion-icon>
-    <ion-label position="floating">CPF </ion-label>
-    <ion-input placeholder="000.000.000-00"></ion-input>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-icon name="bookmark-outline" slot="start"></ion-icon>
+      <ion-label position="floating">CPF </ion-label>
+      <ion-input formControlName="CPF" name="CPF" placeholder="000.000.000-00"></ion-input>
+    </ion-item>
 
 
-  <ion-item lines="none">
-    <ion-icon name="accessibility-outline" slot="start"></ion-icon>
+     <ion-item lines="none">
+      <ion-icon name="accessibility-outline" slot="start"></ion-icon>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-label position="floating">Nome da criança </ion-label>
+              <ion-input placeholder="Anthony Oliveira" formControlName="childName"></ion-input>
+            </div>
+          </ion-col>
+          <ion-col offset="4">
+            <div>
+              <ion-label position="floating">Idade</ion-label>
+              <ion-input placeholder="2 anos" formControlName="age"></ion-input>
+            </div>
+          </ion-col>
+        </ion-row>
+    </ion-item>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <div>
-            <ion-label position="floating">Nome da criança </ion-label>
-            <ion-input placeholder="Anthony Oliveira"></ion-input>
-          </div>
-        </ion-col>
-        <ion-col offset-4="">
-          <div>
-            <ion-label position="floating">Idade</ion-label>
-            <ion-input placeholder="2 anos"></ion-input>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Telefones para contato </ion-label>
+      <ion-input placeholder="82988260479" formControlName="contacts" name="contacts"></ion-input>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-icon name="call-outline" slot="start"></ion-icon>
-    <ion-label position="floating">Telefones para contato </ion-label>
-    <ion-input placeholder="82988260479"></ion-input>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-label position="floating" >E-mail </ion-label>
+      <ion-input placeholder="vitinifal@gmail.com" formControlName="email" name="email"></ion-input>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-icon name="mail-outline" slot="start"></ion-icon>
-    <ion-label position="floating" >E-mail </ion-label>
-    <ion-input placeholder="vitinifal@gmail.com"></ion-input>
-  </ion-item>
+    <ion-item id="open-modal" lines="none">
+      <ion-icon icon="calendar-outline" slot="start"></ion-icon>
+      <ion-label>Data e hora</ion-label>
+      <ion-text slot="end">{{ formattedString }}</ion-text>
+    </ion-item>
 
-  <ion-item id="open-modal" lines="none">
-    <ion-icon icon="calendar-outline" slot="start"></ion-icon>
-    <ion-label>Data e hora</ion-label>
-    <ion-text slot="end">{{ formattedString }}</ion-text>
-  </ion-item>
+    <ion-modal trigger="open-modal">
+      <ng-template>
+        <ion-content scrollY="false">
+          <ion-datetime
+            #datetimemodal
+            [value]="dateValue"
+            size="cover"
+            (ionChange)="modalDateChanged(datetimemodal.value)"
+          >
+            <ion-buttons slot="buttons">
+              <ion-button (click)="close()">Cancelar</ion-button>
+              <ion-button (click)="select()" color="primary">Ok</ion-button>
+            </ion-buttons>
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
 
-  <ion-modal trigger="open-modal">
-    <ng-template>
-      <ion-content scrollY="false">
-        <ion-datetime
-          #datetimemodal
-          [value]="dateValue"
-          size="cover"
-          (ionChange)="modalDateChanged(datetimemodal.value)"
-        >
-          <ion-buttons slot="buttons">
-            <ion-button (click)="close()">Cancelar</ion-button>
-            <ion-button (click)="select()" color="primary">Ok</ion-button>
-          </ion-buttons>
-        </ion-datetime>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+    <ion-item lines="none">
+      <ion-icon name="navigate-outline" slot="start"></ion-icon>
+      <ion-label position="floating" >Tema </ion-label>
+      <ion-input placeholder="Rei leão" formControlName="theme" name="theme"></ion-input>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-icon name="navigate-outline" slot="start"></ion-icon>
-    <ion-label position="floating" >Tema </ion-label>
-    <ion-input placeholder="Rei leão"></ion-input>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label position="floating" >Local </ion-label>
+      <ion-input placeholder="Salão teste" formControlName="location" name="location"></ion-input>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-icon name="location-outline" slot="start"></ion-icon>
-    <ion-label position="floating" >Local </ion-label>
-    <ion-input placeholder="Salão teste"></ion-input>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-icon name="pin-outline" slot="start"></ion-icon>
+      <ion-label position="floating" >Endereço da festa </ion-label>
+      <ion-input placeholder="Rua dos campos" formControlName="addressFest" name="addressFest"></ion-input>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-icon name="pin-outline" slot="start"></ion-icon>
-    <ion-label position="floating" >Endereço da festa </ion-label>
-    <ion-input placeholder="Rua dos campos"></ion-input>
-  </ion-item>
+
+    <div class="button">
+      <ion-button type="submit" shape="round" fill="outline">Agendar</ion-button>
+    </div>
+  </form>
 </ion-content>

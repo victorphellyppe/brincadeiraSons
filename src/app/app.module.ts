@@ -18,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    IonicStorageModule.forRoot(),
+    IonicStorageModule.forRoot({
+      name: "mydatabase"
+    }),
     HttpClientModule
   ],
   providers: [

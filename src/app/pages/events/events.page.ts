@@ -1,6 +1,9 @@
+import { StorageService } from '../../services/storage.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { IonDatetime } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
+import { Events } from '../../interfaces/events';
 
 @Component({
   selector: 'app-events',
@@ -12,10 +15,25 @@ export class EventsPage implements OnInit {
   @ViewChild(IonDatetime) datetime: IonDatetime;
   dateValue = format(new Date(), 'yyyy-MM-dd') + 'T09:00:00.000Z';
   formattedString: any = '';
+  evento: Events;
+  eventForm: FormGroup;
 
-  constructor() {  }
+  constructor(private storageSvc: StorageService, private fb: FormBuilder) {  }
   ngOnInit(): void {
     this.setToday();
+
+    this.eventForm = this.fb.group({
+      fullName: ['', [Validators.required, Validators.minLength(5)]],
+      CPF: ['', [Validators.required, Validators.minLength(11)]],
+      childName: ['', [Validators.required]],
+      age: ['', [Validators.required]],
+      contacts: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      dateHour: [this.formattedString, [Validators.required]],
+      theme: ['', [Validators.required]],
+      location: ['', [Validators.required]],
+      addressFest: ['', [Validators.required]],
+    })
   }
 
   setToday() {
@@ -41,5 +59,14 @@ export class EventsPage implements OnInit {
   async select() {
     await this.datetime.confirm(true);
   }
+
+  submitForm(){
+    const formulario = this.eventForm.value;
+      console.log(formulario);
+      this.storageSvc.addData(formulario);
+  }
+
+
+
 }
 

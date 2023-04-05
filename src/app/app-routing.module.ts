@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'contracts',
     loadChildren: () => import('./pages/contracts/contracts.module').then(m => m.ContractsPageModule)
+  },  {
+    path: 'list-events',
+    loadChildren: () => import('./pages/list-events/list-events.module').then( m => m.ListEventsPageModule)
   },
+
 
 
 ];

@@ -2,6 +2,7 @@ export interface Events {
   fullName: string;
   CPF: string;
   childName:string;
+  age: string;
   contacts: string[];
   email:string;
   date:string;
