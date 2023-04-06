@@ -19,7 +19,7 @@
     <ion-item lines="none">
       <ion-icon name="bookmark-outline" slot="start"></ion-icon>
       <ion-label position="floating">CPF </ion-label>
-      <ion-input formControlName="CPF" name="CPF" placeholder="000.000.000-00"></ion-input>
+      <ion-input formControlName="CPF" name="CPF" placeholder="000.000.000-00" [brmasker]="{mask: '999.999.999-99', len:14, userCaracters: false}"></ion-input>
     </ion-item>
 
 

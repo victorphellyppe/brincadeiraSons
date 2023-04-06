@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EventsPageRoutingModule } from './events-routing.module';
 
 import { EventsPage } from './events.page';
+import { BrMaskerModule } from 'br-mask';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { EventsPage } from './events.page';
     FormsModule,
     IonicModule,
     EventsPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrMaskerModule
   ],
   declarations: [EventsPage]
 })
