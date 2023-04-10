@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ListEventsPageRoutingModule } from './list-events-routing.module';
 
 import { ListEventsPage } from './list-events.page';
+import { CalendarModule } from 'ion2-calendar';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListEventsPageRoutingModule
+    ListEventsPageRoutingModule,
+    CalendarModule
+
   ],
   declarations: [ListEventsPage]
 })

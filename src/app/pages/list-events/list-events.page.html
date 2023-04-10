@@ -9,6 +9,16 @@
 
 <ion-content>
 
+  <div class="ion-padding">
+    <ion-calendar
+        [(ngModel)]="dateMulti"
+        [options]="optionsMulti"
+        [type]="type"
+        [format]="'YYYY-MM-DD'"
+        (monthChange)="onChangeMonth($event)">
+    </ion-calendar>
+  </div>
+
   <ion-list>
     <ion-item-sliding *ngFor="let evento of listEvents; let i = index;">
 
