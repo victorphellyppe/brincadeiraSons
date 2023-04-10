@@ -19,11 +19,12 @@
     </ion-calendar>
   </div>
 
-  <ion-list>
+  <ion-list style="border: 1px solid #000 ">
     <ion-item-sliding *ngFor="let evento of listEvents; let i = index;">
 
-      <ion-item>
-        {{ evento.fullName  / evento.CPF }}
+      <ion-item (click)="openEventDetail(event.id)">
+        Nome
+        {{ evento.fullName  }}
       </ion-item>
 
       <ion-item-options side="end">

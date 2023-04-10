@@ -1,4 +1,5 @@
 export interface Events {
+  id: number;
   fullName: string;
   CPF: string;
   childName:string;

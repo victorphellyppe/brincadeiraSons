@@ -61,6 +61,8 @@ export class EventsPage implements OnInit {
   }
 
   submitForm(){
+    console.log('SubmitForm');
+
     const formulario = this.eventForm.value;
     this.storageSvc.addData(formulario);
   }
