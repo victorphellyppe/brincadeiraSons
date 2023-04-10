@@ -65,6 +65,7 @@ export class EventsPage implements OnInit {
 
     const formulario = this.eventForm.value;
     this.storageSvc.addData(formulario);
+    formulario.reset();
   }
 
 

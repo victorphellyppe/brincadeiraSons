@@ -30,7 +30,7 @@ export class UtilsService {
 
   public loadParams() {
     if (this.router.getCurrentNavigation()?.extras?.state) {
-      return this.router.getCurrentNavigation().extras.state.params;
+      // return this.router.getCurrentNavigation().extras.state.params;
     }
   }
 

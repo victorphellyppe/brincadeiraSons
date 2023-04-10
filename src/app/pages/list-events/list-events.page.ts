@@ -52,7 +52,6 @@ export class ListEventsPage implements OnInit {
 
   async addData() {
     await this.router.navigateByUrl('/events')
-    // await this.storageSvc.addData(`Simon ${Math.floor(Math.random() * 100)}`);
     // this.loadData();
   }
 
@@ -72,6 +71,6 @@ export class ListEventsPage implements OnInit {
   }
 
   openEventDetail(eventId: number) {
-    this.utilsSvc.changeRote('menu/calendar-detail', { eventId });
+    this.utilsSvc.changeRote('menu/event-detail', { eventId });
   }
 }
