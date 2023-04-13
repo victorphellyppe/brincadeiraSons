@@ -8,7 +8,7 @@ import { format, parseISO } from 'date-fns';
 import { Events } from '../../interfaces/events';
 
 @Component({
-  selector: 'app-events',
+  selector: 'app-events-page',
   templateUrl: './events.page.html',
   styleUrls: ['./events.page.scss'],
 })
@@ -52,6 +52,10 @@ export class EventsPage implements OnInit {
   modalDateChanged(value) {
     this.dateValue = value;
     this.formattedString = format(parseISO(value), 'dd/MM/yyyy HH:mm');
+  }
+
+  dateChanged(){
+    console.log('Alterou a data!')
   }
 
   async close() {

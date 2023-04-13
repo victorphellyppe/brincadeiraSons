@@ -9,7 +9,7 @@
 
 <ion-content>
 
-  <div class="ion-padding">
+  <!-- <div class="ion-padding">
     <ion-calendar
         [(ngModel)]="dateMulti"
         [options]="optionsMulti"
@@ -18,30 +18,18 @@
         (monthChange)="onChangeMonth($event)"
         (onChange)="onChange($event)">
     </ion-calendar>
-  </div>
+  </div> -->
 
   <ion-list style="border: 1px solid #000 ">
-    <!-- <app-events *ngFor="let evento of listEvents; let i = index;"></app-events> -->
+    <div>
+      <app-events *ngFor="let event of listEvents; let i = index;" [event]="event" [index]="i"></app-events>
 
-    <ion-item-sliding *ngFor="let evento of listEvents; let i = index;">
-
-       <ion-item (click)="openEventDetail(evento.id)">
-        Festa do dia &nbsp;
-        <b>{{  evento.dateHour  }}</b>
-      </ion-item>
-
-
-      <ion-item-options side="end">
-        <ion-item-option (click)="removeItem(i)"  color="danger">
-          <ion-icon name="trash" slot="icon-only"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
+    </div>
   </ion-list>
 
-  <ion-fab slot="fixed" vertical="top" horizontal="end">
+  <ion-fab  vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="addData()" color="secondary">
-      <ion-icon name="add"></ion-icon>
+      <ion-icon name="pencil"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

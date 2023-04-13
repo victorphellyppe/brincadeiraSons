@@ -1,7 +1,13 @@
-<ion-row class="event-info">
-  <ion-col size="12">
-    <span class="name">{{ event.fullName }}</span>
-    <!-- <span class="handle">@{{ event.dateHour }}</span> -->
-    <span class="handle">- {{ event.dateHour*1000 | date: 'shortDate' }}</span>
-  </ion-col>
-</ion-row>
+<ion-item class="card-border">
+  <div class="content">
+    Festa do {{ event.childName }}  - 13/04/2023 18:00
+    Tema da festa Baby Shark
+    <ion-button fill="outline" (click)="removeItem(index)">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+
+    <div class="title">
+      Contratante {{ event.fullName }}
+    </div>
+  </div>
+</ion-item>

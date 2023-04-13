@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { ModalController, NavController } from '@ionic/angular';
+import { ActionSheetController, ModalController, NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
 
-  constructor(public router: Router, public navController: NavController, public modalCtrl: ModalController) { }
+  constructor(public router: Router, public navController: NavController, public modalCtrl: ModalController, public actionSheet: ActionSheetController) { }
 
 
   public changeRote(rota: string, params?: any) {

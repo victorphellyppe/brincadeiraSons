@@ -33,7 +33,6 @@ export class ListEventsPage implements OnInit {
     ],
     weekdays: ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'],
   };
-  eventList = new Subject();
 
 
   listEvents = [];
@@ -82,5 +81,11 @@ export class ListEventsPage implements OnInit {
     //     events: event
     //   }
     // })
+  }
+
+
+  openEvent(){
+    console.log('clickou em openEvent');
+
   }
 }
