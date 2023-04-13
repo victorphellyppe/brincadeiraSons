@@ -1,3 +1,5 @@
+import { ToastService } from './../../services/toast.service';
+import { UtilsService } from './../../services/utils.service';
 import { StorageService } from '../../services/storage.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
@@ -18,7 +20,7 @@ export class EventsPage implements OnInit {
   evento: Events;
   eventForm: FormGroup;
 
-  constructor(private storageSvc: StorageService, private fb: FormBuilder) {  }
+  constructor(private storageSvc: StorageService, private fb: FormBuilder, private toastSvc: ToastService) {  }
   ngOnInit(): void {
     this.setToday();
 
@@ -65,7 +67,8 @@ export class EventsPage implements OnInit {
 
     const formulario = this.eventForm.value;
     this.storageSvc.addData(formulario);
-    formulario.reset();
+    this.toastSvc.presentToast('Evento agendado com sucesso!');
+    const reset = this.eventForm.reset();
   }
 
 

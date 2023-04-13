@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     IonicStorageModule.forRoot({
       name: "mydatabase"
     }),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

@@ -7,7 +7,7 @@ import { ModalController, NavController } from '@ionic/angular';
 })
 export class UtilsService {
 
-  constructor(private router: Router, private navController: NavController, private modalCtrl: ModalController) { }
+  constructor(public router: Router, public navController: NavController, public modalCtrl: ModalController) { }
 
 
   public changeRote(rota: string, params?: any) {

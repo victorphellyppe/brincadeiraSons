@@ -1,3 +1,4 @@
+import { Events } from './../../interfaces/events';
 import { UtilsService } from './../../services/utils.service';
 import { Router } from '@angular/router';
 import { StorageService } from '../../services/storage.service';
@@ -35,12 +36,12 @@ export class ListEventsPage implements OnInit {
   eventList = new Subject();
 
 
-
   listEvents = [];
   constructor(private storageSvc: StorageService, private router: Router, private utilsSvc: UtilsService) { }
 
   ngOnInit() {
     this.loadData();
+
   }
 
   async loadData() {
@@ -63,14 +64,23 @@ export class ListEventsPage implements OnInit {
 
   /** date */
   onChange($event) {
-    console.log($event);
+    console.log('On change of event: ', $event);
+    console.log($event.format('DD-MM-YYYY'));
+
   }
 
   onChangeMonth(event: { newMonth; oldMonth }) {
 
   }
 
-  openEventDetail(eventId: number) {
-    this.utilsSvc.changeRote('menu/event-detail', { eventId });
+  openEventDetail(event: Events) {
+    console.log(event);
+
+    // const modal = this.utilsSvc.modalCtrl.create({
+    //   component: EventDetailComponent,
+    //   componentProps: {
+    //     events: event
+    //   }
+    // })
   }
 }

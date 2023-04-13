@@ -1,0 +1,7 @@
+<ion-row class="event-info">
+  <ion-col size="12">
+    <span class="name">{{ event.fullName }}</span>
+    <!-- <span class="handle">@{{ event.dateHour }}</span> -->
+    <span class="handle">- {{ event.dateHour*1000 | date: 'shortDate' }}</span>
+  </ion-col>
+</ion-row>

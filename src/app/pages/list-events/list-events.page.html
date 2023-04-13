@@ -15,17 +15,21 @@
         [options]="optionsMulti"
         [type]="type"
         [format]="'YYYY-MM-DD'"
-        (monthChange)="onChangeMonth($event)">
+        (monthChange)="onChangeMonth($event)"
+        (onChange)="onChange($event)">
     </ion-calendar>
   </div>
 
   <ion-list style="border: 1px solid #000 ">
+    <!-- <app-events *ngFor="let evento of listEvents; let i = index;"></app-events> -->
+
     <ion-item-sliding *ngFor="let evento of listEvents; let i = index;">
 
-      <ion-item (click)="openEventDetail(evento.id)">
+       <ion-item (click)="openEventDetail(evento.id)">
         Festa do dia &nbsp;
         <b>{{  evento.dateHour  }}</b>
       </ion-item>
+
 
       <ion-item-options side="end">
         <ion-item-option (click)="removeItem(i)"  color="danger">
