@@ -40,11 +40,11 @@ export class AppComponent {
         url   : "/sons",
         icon  : "musical-note-outline"
       },
-      {
-        title : "Agendar evento",
-        url   : "/events",
-        icon  : "balloon-outline"
-      },
+      // {
+      //   title : "Agendar evento",
+      //   url   : "/events",
+      //   icon  : "balloon-outline"
+      // },
       {
         title : "Todos os eventos",
         url   : "/list-events",
